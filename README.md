@@ -162,15 +162,3 @@ sui client call \
 **Note**: You can only update metadata if you own the `TreasuryCap` object. 
 
 For more details on updating metadata of your Coin, see the [Sui Coin Framework Documentation](https://docs.sui.io/references/framework/sui/coin#sui_coin_update_name).
-
-## What is NTT?
-
-Native Token Transfer (NTT) is a protocol that enables tokens to be transferred across different blockchain networks while maintaining their native properties. This implementation provides a foundation for creating tokens that can be bridged between Sui and other blockchains.
-
-## Next Steps
-
-To make this token truly multichain:
-1. Implement the NTT protocol interfaces
-2. Add cross-chain transfer functions
-3. Integrate with bridge contracts
-4. Add proper error handling and validation
