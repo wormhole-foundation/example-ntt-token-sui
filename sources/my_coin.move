@@ -17,23 +17,4 @@ module my_coin_pkg::my_coin {
         sui::transfer::public_transfer(treasury, sender);
         sui::transfer::public_share_object(metadata);
     }
-
-    public fun mint(
-        cap: &mut TreasuryCap<MY_COIN>,
-        amount: u64,
-        recipient: address,
-        ctx: &mut sui::tx_context::TxContext
-    ) {
-        let c = coin::mint<MY_COIN>(cap, amount, ctx);
-        sui::transfer::public_transfer(c, recipient);
-    }
-
-    public fun burn(
-        cap: &mut TreasuryCap<MY_COIN>,
-        c: coin::Coin<MY_COIN>
-    ) {
-        coin::burn<MY_COIN>(cap, c);
-    }
-
-
 }
