@@ -1,5 +1,6 @@
+#[allow(deprecated_usage)]
 module my_coin_pkg::my_coin {
-    use sui::coin::{Self, TreasuryCap};
+    use sui::coin::{Self};
     use sui::url;
 
     public struct MY_COIN has drop {}
