@@ -68,6 +68,18 @@ sui move build
 ```
 
 ### 9. Deploy the Coin to Testnet
+
+**Recommended: Save the output to a file for better readability**
+
+The publish command generates a lot of output with important information. Saving it to a file makes it easier to read and reference later:
+
+```bash
+sui client publish --gas-budget 20000000 | tee publish-output.txt
+```
+
+This command will save a copy to `publish-output.txt` for later reference
+
+Alternatively, you can run the command without saving:
 ```bash
 sui client publish --gas-budget 20000000
 ```
@@ -79,6 +91,21 @@ PackageID: 0x67ad495772e4cf74ef6bf911708973fbad23c7646129dea62ec82492a220a40d
 ```
 
 **Save the PackageID - you'll need it for the minting step!**
+
+#### Optional: Use the Parse Script for Easy Information Extraction
+
+If you saved the output to `publish-output.txt`, you can use the included `parse-publish.sh` script to automatically extract all the information you need for minting:
+
+```bash
+./parse-publish.sh
+```
+
+Or if you saved the output to a different file:
+```bash
+./parse-publish.sh your-output-file.txt
+```
+
+The script automatically extracts all deployment information and generates a ready-to-use mint command.
 
 ### 10. Verify Deployment
 ```bash

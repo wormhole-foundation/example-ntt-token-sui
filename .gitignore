@@ -3,3 +3,6 @@ build/
 
 # Move lock file (can be regenerated)
 Move.lock
+
+# Local publish output (deployment-specific)
+publish-output.txt
