@@ -28,6 +28,13 @@ echo "TreasuryCap ID:"
 echo "  $TREASURY_CAP"
 echo ""
 
+# Extract Struct Name from TreasuryCap ObjectType
+# Pattern: TreasuryCap<PACKAGE_ID::MODULE::STRUCT>
+STRUCT=$(grep "TreasuryCap<" "$FILE" | sed 's/.*::\([^:]*\)>.*/\1/' | head -1)
+echo "Struct Name:"
+echo "  $STRUCT"
+echo ""
+
 # Extract Sender Address
 SENDER=$(grep "Sender:" "$FILE" | head -1 | grep -oE "0x[a-f0-9]{64}")
 echo "Sender Address:"
@@ -48,5 +55,5 @@ echo "Example: 1000000000000 = 1000 tokens"
 echo ""
 echo "Check balance command:"
 echo "════════════════════════════════════════════════════════"
-echo "sui client balance --coin-type $PACKAGE_ID::$MODULE::MY_COIN"
+echo "sui client balance --coin-type $PACKAGE_ID::$MODULE::$STRUCT"
 

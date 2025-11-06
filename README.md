@@ -44,7 +44,11 @@ sui client faucet
 sui client balance
 ```
 
-Before deploying, you can modify the coin properties in `sources/my_coin.move`:
+Before deploying, you can customize your token module/package name (e.g., `ww:WW`) and modify the coin properties in `sources/my_coin.move`:
+
+**To customize the module/package name:**
+1. In `Move.toml`: Change `name = "ww"` and `ww = "0x0"` to your desired package name
+2. In your Move file: Change `module ww::WW` and `struct WW` to match (e.g., `module mytoken::MYTOKEN` with `struct MYTOKEN`)
 
 ### **Coin Properties:**
 ```move
@@ -156,7 +160,7 @@ Throughout this README, you'll see placeholder values that need to be replaced w
 
 - **`YOUR_GENERATED_ADDRESS`**: The address from step 3 (`sui client new-address ed25519`)
 - **`YOUR_DEPLOYED_PACKAGE_ID_STEP9`**: The package ID from step 9 deployment output
-- **`MODULE_NAME`**: Your module name (default: `my_coin`)
+- **`MODULE_NAME`**: Your module name (default: `my_coin`, or your customized name like `WW`)
 - **`TREASURYCAP_ID_STEP10`**: The TreasuryCap ID from step 10 deployment output
 - **`RECIPIENT_ADDRESS`**: The address to receive minted coins
 - **`AMOUNT_WITH_DECIMALS`**: Amount in smallest units (e.g., `1000000000` for 1 coin with 9 decimals)
